@@ -67,7 +67,7 @@ $$L=\frac12\sum_{i,j}\bigl(a_{i,j}-y_{i,j}\bigr)^2$$
 
 ### 1. Прямой проход
 
-1. Свертка: $Z^{conv}_{i,j}=\sum_{m,n}X_{i+m,\,j+n}\cdot W_{m,n}$.
+1. Свертка: Z<sup>conv</sup><sub>i,j</sub> = Σ<sub>m,n</sub> X<sub>i+m, j+n</sub> · W<sub>m,n</sub>.
 2. Смещение: $Z=Z^{conv}+b$.
 3. Активация: $a=\max(0,Z)$.
 
@@ -78,7 +78,7 @@ $$L=\frac12\sum_{i,j}\bigl(a_{i,j}-y_{i,j}\bigr)^2$$
 | Шаг | Формула | Смысл |
 | :-: | :-----: | ----- |
 | 1 | $\dfrac{\partial L}{\partial a}=a-y$ | Насколько и в какую сторону выход отличается от цели |
-| 2 | $\dfrac{\partial L}{\partial z}=\dfrac{\partial L}{\partial a}\odot\begin{cases}1,&z>0\\0,&z\le0\end{cases}$ | Градиент проходит только через «включённые» нейроны |
+| 2 | ∂L/∂z = (∂L/∂a) ⊙ <table style="display:inline-table;vertical-align:middle;border-collapse:collapse"><tr><td style="border-left:1px solid;padding:0 4px">1, z &gt; 0</td></tr><tr><td style="border-left:1px solid;padding:0 4px">0, z ≤ 0</td></tr></table> | Градиент проходит только через «включённые» нейроны |
 | 3 | $\dfrac{\partial L}{\partial b}=\sum\limits_{i,j}\dfrac{\partial L}{\partial z_{i,j}}$ | $b$ добавлялось ко всем элементам, поэтому градиенты суммируются |
 | 4 | $\dfrac{\partial L}{\partial W_{m,n}}=\sum\limits_{i,j}\dfrac{\partial L}{\partial z_{i,j}}\cdot X_{i+m,\,j+n}$ | Вес участвовал в каждой позиции ядра, умножаясь на «свой» пиксель |
 
